@@ -1,0 +1,43 @@
+{# item.html.twig
+
+	This file provides the template for displaying all episodes with that 
+	show as well as the airdate and the seaons the episode was aired in. 
+#}
+
+{% include 'header.twig' %}
+<style>
+table, tr, th, td { border: 1px solid black !important; }
+td, th {padding: .4em;}
+.id { text-align: center; }
+.name { text-align: center; }
+.price { text-align: right; }
+</style>
+{% if results %}
+<h1>All episode of {{results[0].showTitle}}</h1>
+
+
+{% if results %}
+	<table>
+		<tr>
+		<th class="show">Title</th>
+		<th class="name">Air date</th>
+		<th class="name">Season</th>
+		</tr>
+	{% for item in results%}
+		<tr>
+		<td class="show"><a href="/streamTV/episodeInfo/{{item.showID}}&{{item.episodeID}}">{{item.title}}</a></td>
+		<th class="name">{{item.airdate}}</a></td>
+		<th class="name">{{item.season}}</a></td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+	<br>
+
+</tr>
+<table>
+
+
+{% endif %}
+
+{% include 'footer.twig' %}
